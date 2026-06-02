@@ -1014,6 +1014,61 @@
   /* ── SVG ICONS (inline) ── */
   .icon-svg { width: 18px; height: 18px; fill: currentColor; vertical-align: middle; }
 
+
+  /* ── SPONSOR TICKER ── */
+  .sponsor-ticker-wrap {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(232,150,15,0.2);
+    border-bottom: 1px solid rgba(232,150,15,0.2);
+    padding: 0.75rem 0;
+  }
+  .sponsor-ticker-wrap::before,
+  .sponsor-ticker-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+  }
+  .sponsor-ticker-wrap::before {
+    left: 0;
+    background: linear-gradient(90deg, #111115, transparent);
+  }
+  .sponsor-ticker-wrap::after {
+    right: 0;
+    background: linear-gradient(-90deg, #111115, transparent);
+  }
+  .sponsor-ticker {
+    display: flex;
+    overflow: hidden;
+  }
+  .sponsor-ticker-track {
+    display: flex;
+    gap: 0;
+    animation: tickerScroll 40s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+  }
+  .sponsor-ticker-track:hover { animation-play-state: paused; }
+  .ticker-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    padding: 0 2.5rem;
+    flex-shrink: 0;
+    transition: color 0.2s;
+  }
+  .ticker-item:hover { color: var(--amber); }
+  @keyframes tickerScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   /* scroll reveal */
   .reveal {
     opacity: 0;
@@ -1038,7 +1093,8 @@
     <li><a href="#about" onclick="closeNav()">About</a></li>
     <li><a href="#tickets" onclick="closeNav()">Tickets</a></li>
     <li><a href="#schedule" onclick="closeNav()">Schedule</a></li>
-    <li><a href="#sponsors" onclick="closeNav()">Sponsors</a></li>
+    <li><a href="pts.html">Meet the PTs</a></li>
+    <li><a href="sponsors.html">Sponsors</a></li>
     <li><a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="nav-cta">Get Tickets</a></li>
   </ul>
   <div class="nav-right">
@@ -1211,37 +1267,37 @@
         <div class="session-row">
           <div class="session-time"><span class="time-main">5:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">Bootcamp</span></div>
-          <div class="session-pt"><span class="pt-name">Josh Stevenson</span><span class="pt-business">The Conditioning Zone</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#josh-stevenson" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Josh Stevenson</a></span><span class="pt-business">The Conditioning Zone</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">6:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">Step Class</span></div>
-          <div class="session-pt"><span class="pt-name">Tash Lysandrou</span><span class="pt-business">The Conditioning Zone</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#tash-lysandrou" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Tash Lysandrou</a></span><span class="pt-business">The Conditioning Zone</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">7:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">Boxing</span></div>
-          <div class="session-pt"><span class="pt-name">Warren Shepherd</span><span class="pt-business">Freedom in the Fire</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#warren-shepherd" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Warren Shepherd</a></span><span class="pt-business">Freedom in the Fire</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">8:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">Full Body Fitness</span></div>
-          <div class="session-pt"><span class="pt-name">Kristina Foster-Pullen</span><span class="pt-business">FP Fitness &amp; Mushroom Programming</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#kristina-foster-pullen" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Kristina Foster-Pullen</a></span><span class="pt-business">FP Fitness &amp; Mushroom Programming</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">9:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">HIIT / Strength</span></div>
-          <div class="session-pt"><span class="pt-name">Ant Crocker</span><span class="pt-business">Ant Crocker</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#ant-crocker" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Ant Crocker</a></span><span class="pt-business">Ant Crocker</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">10:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">Street Dance</span></div>
-          <div class="session-pt"><span class="pt-name">Faith Newport</span><span class="pt-business">STREETCRED</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#faith-newport" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faith Newport</a></span><span class="pt-business">STREETCRED</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">11:00PM</span><span class="time-day">Fri 3rd</span></div>
           <div class="session-type"><span class="session-type-text">Boxercise</span></div>
-          <div class="session-pt"><span class="pt-name">Sean Suleman</span><span class="pt-business">Boxing Fit</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#sean-suleman" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Sean Suleman</a></span><span class="pt-business">Boxing Fit</span></div>
         </div>
 
         <!-- Midnight banner -->
@@ -1253,32 +1309,32 @@
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>12:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">OrbFit</span></div>
-          <div class="session-pt"><span class="pt-name">James Amos</span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>1:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Hyrox</span></div>
-          <div class="session-pt"><span class="pt-name">Faye Benjamin</span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#faye-benjamin" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faye Benjamin</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>2:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">JuJitsu / Wrestling</span></div>
-          <div class="session-pt"><span class="pt-name">James Amos</span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>3:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Night Log Run</span></div>
-          <div class="session-pt"><span class="pt-name">James Amos</span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>4:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Sports Day Team Battle</span></div>
-          <div class="session-pt"><span class="pt-name">James Amos</span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>5:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Reset Walk</span></div>
-          <div class="session-pt"><span class="pt-name">Faye Benjamin</span><span class="pt-business">Faye Benjamin</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#faye-benjamin" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faye Benjamin</a></span><span class="pt-business">Faye Benjamin</span></div>
         </div>
 
         <!-- Dawn banner -->
@@ -1290,17 +1346,17 @@
         <div class="session-row">
           <div class="session-time"><span class="time-main"><span class="time-icon">☀️</span>6:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Sunrise Pilates</span></div>
-          <div class="session-pt"><span class="pt-name">Hannah Brocklesby</span><span class="pt-business">Wotton Pilates</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#hannah-brocklesby" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Hannah Brocklesby</a></span><span class="pt-business">Wotton Pilates</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">7:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Line Dancing</span></div>
-          <div class="session-pt"><span class="pt-name">Faith Newport</span><span class="pt-business">STREETCRED</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#faith-newport" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faith Newport</a></span><span class="pt-business">STREETCRED</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">8:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Hyrox</span></div>
-          <div class="session-pt"><span class="pt-name">Tilly Wyatt</span><span class="pt-business">TWL Personal Training</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#tilly-wyatt" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Tilly Wyatt</a></span><span class="pt-business">TWL Personal Training</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">9:00AM</span><span class="time-day">Sat 4th</span></div>
@@ -1310,37 +1366,37 @@
         <div class="session-row">
           <div class="session-time"><span class="time-main">10:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Rugby Inspired HIIT</span></div>
-          <div class="session-pt"><span class="pt-name">James Bennett</span><span class="pt-business">Foundation Fitness Ltd</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#james-bennett" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Bennett</a></span><span class="pt-business">Foundation Fitness Ltd</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">11:00AM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Hyrox Conditioning</span></div>
-          <div class="session-pt"><span class="pt-name">Michael Jordan</span><span class="pt-business">MJ</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#michael-jordan" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Michael Jordan</a></span><span class="pt-business">MJ</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">12:00PM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Strength &amp; Cardio</span></div>
-          <div class="session-pt"><span class="pt-name">Sam Hillier</span><span class="pt-business">Stronger with Sam</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#sam-hillier" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Sam Hillier</a></span><span class="pt-business">Stronger with Sam</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">1:00PM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Bodyweight Bootcamp</span></div>
-          <div class="session-pt"><span class="pt-name">Jason Michael</span><span class="pt-business">JJM Fitness</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#jason-michael" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Jason Michael</a></span><span class="pt-business">JJM Fitness</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">2:00PM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">Comedy Running</span></div>
-          <div class="session-pt"><span class="pt-name">Craig Base</span><span class="pt-business">Base Race</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#craig-base" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Craig Base</a></span><span class="pt-business">Base Race</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">3:00PM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">CrossFit Bodyweight</span></div>
-          <div class="session-pt"><span class="pt-name">Aimee Waters</span><span class="pt-business">CrossFit Yate</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#aimee-waters" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Aimee Waters</a></span><span class="pt-business">CrossFit Yate</span></div>
         </div>
         <div class="session-row" style="border-bottom: 2px solid #b87200;">
           <div class="session-time"><span class="time-main">4:00PM</span><span class="time-day">Sat 4th</span></div>
           <div class="session-type"><span class="session-type-text">🎉 Fun Finisher</span></div>
-          <div class="session-pt"><span class="pt-name">Commando Boot Camp</span><span class="pt-business">Closing Session — details coming soon!</span></div>
+          <div class="session-pt"><span class="pt-name"><a href="pts.html#commando-boot-camp" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Commando Boot Camp</a></span><span class="pt-business">Closing Session — details coming soon!</span></div>
         </div>
 
       </div>
@@ -1419,110 +1475,22 @@
 
     <!-- Event Sponsors -->
     <div class="sponsors-section-title">Event Sponsors</div>
-    <div class="sponsors-grid reveal" style="margin-bottom:2rem;">
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Functional Sports Therapy</div><div class="sponsor-contact">Frankie Nutt</div><p class="sponsor-blurb">Add a short description about Functional Sports Therapy here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Dreams2Reality</div><div class="sponsor-contact">Cameron Parker</div><p class="sponsor-blurb">Add a short description about Dreams2Reality here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">DW Windows &amp; Guttering</div><div class="sponsor-contact">Dean Spratt-Wyatt</div><p class="sponsor-blurb">Add a short description about DW Windows &amp; Guttering here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Liam Ridley</div><div class="sponsor-contact">Individual Sponsor</div><p class="sponsor-blurb">Add a short description here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Knowles Signs</div><div class="sponsor-contact">Oliver Knowles — Signwriting &amp; Gold Leaf</div><p class="sponsor-blurb">Add a short description about Knowles Signs here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Green Gorilla Tree Surgeon</div><div class="sponsor-contact">Matt Fisher</div><p class="sponsor-blurb">Add a short description about Green Gorilla Tree Surgeon here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Dave Hemmings Plastering</div><div class="sponsor-contact">Dave Hemmings</div><p class="sponsor-blurb">Add a short description about Dave Hemmings Plastering here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Freemasons — Avon Vale Lodge</div><div class="sponsor-contact">Lee White</div><p class="sponsor-blurb">Add a short description about Freemasons Avon Vale Lodge here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Wickwar Strength &amp; Fitness</div><div class="sponsor-contact">James Amos</div><p class="sponsor-blurb">Host of the overnight sessions — and a massive supporter of everything 24 STRONG.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Spark Gin</div><div class="sponsor-contact">Stewart Stacey</div><p class="sponsor-blurb">Add a short description about Spark Gin here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Health Edge Ltd</div><div class="sponsor-contact">Phil Player</div><p class="sponsor-blurb">Add a short description about Health Edge Ltd here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Gawler Tapes</div><div class="sponsor-contact">Mark Jones</div><p class="sponsor-blurb">Add a short description about Gawler Tapes here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Sabre</div><div class="sponsor-contact">Jesse Malone</div><p class="sponsor-blurb">Add a short description about Sabre here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Freedom Gym</div><div class="sponsor-contact">James Bennett — Energise Community Active Ltd</div><p class="sponsor-blurb">Add a short description about Freedom Gym here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">BLW Construction</div><div class="sponsor-contact">Martin Seymour-Williams</div><p class="sponsor-blurb">Add a short description about BLW Construction here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">The Beaufort Hunt Pub</div><div class="sponsor-contact">Mike Harrington</div><p class="sponsor-blurb">Add a short description about The Beaufort Hunt Pub here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Sodbury Surfacing</div><div class="sponsor-contact">James Faulkener</div><p class="sponsor-blurb">Add a short description about Sodbury Surfacing here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">The Squire Pub</div><div class="sponsor-contact">Greg Gale</div><p class="sponsor-blurb">Add a short description about The Squire Pub here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">The Old Bank Hotel</div><div class="sponsor-contact">Derek &amp; Fi</div><p class="sponsor-blurb">Add a short description about The Old Bank Hotel here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Downend Flooring &amp; Tiling</div><div class="sponsor-contact">Daryl Griffee</div><p class="sponsor-blurb">Add a short description about Downend Flooring &amp; Tiling here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Milburys Estate Agents</div><div class="sponsor-contact">Leyla Wood</div><p class="sponsor-blurb">Add a short description about Milburys Estate Agents here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Prestige Roofing Ltd</div><div class="sponsor-contact">Lee Matthews</div><p class="sponsor-blurb">Add a short description about Prestige Roofing Ltd here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Lusso Venetian Plastering</div><div class="sponsor-contact">Ash</div><p class="sponsor-blurb">Add a short description about Lusso Venetian Plastering here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Kindle Woodburner</div><div class="sponsor-contact">James Carlisle</div><p class="sponsor-blurb">Add a short description about Kindle Woodburner here.</p>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-logo-placeholder"></div>
-        <div class="sponsor-name">Commando Boot Camp 100 Club</div><div class="sponsor-contact">Community Supporters</div><p class="sponsor-blurb">Add a short description about the 100 Club here.</p>
+    <p style="font-size:0.9rem; color:rgba(255,255,255,0.5); margin-bottom:2rem; text-align:center;">Proudly supported by 25 incredible local businesses and individuals.</p>
+
+    <!-- Scrolling ticker -->
+    <div class="sponsor-ticker-wrap reveal" style="margin-bottom:2rem;">
+      <div class="sponsor-ticker">
+        <div class="sponsor-ticker-track">
+          <span class="ticker-item">★ Functional Sports Therapy</span><span class="ticker-item">★ Dreams2Reality</span><span class="ticker-item">★ DW Windows & Guttering</span><span class="ticker-item">★ Liam Ridley</span><span class="ticker-item">★ Knowles Signs</span><span class="ticker-item">★ Green Gorilla Tree Surgeon</span><span class="ticker-item">★ Dave Hemmings Plastering</span><span class="ticker-item">★ Freemasons — Avon Vale Lodge</span><span class="ticker-item">★ Wickwar Strength & Fitness</span><span class="ticker-item">★ Spark Gin</span><span class="ticker-item">★ Health Edge Ltd</span><span class="ticker-item">★ Gawler Tapes</span><span class="ticker-item">★ Sabre</span><span class="ticker-item">★ Freedom Gym</span><span class="ticker-item">★ BLW Construction</span><span class="ticker-item">★ The Beaufort Hunt Pub</span><span class="ticker-item">★ Sodbury Surfacing</span><span class="ticker-item">★ The Squire Pub</span><span class="ticker-item">★ The Old Bank Hotel</span><span class="ticker-item">★ Downend Flooring & Tiling</span><span class="ticker-item">★ Milburys Estate Agents</span><span class="ticker-item">★ Prestige Roofing Ltd</span><span class="ticker-item">★ Lusso Venetian Plastering</span><span class="ticker-item">★ Kindle Woodburner</span><span class="ticker-item">★ Commando Boot Camp 100 Club</span><span class="ticker-item">★ Functional Sports Therapy</span><span class="ticker-item">★ Dreams2Reality</span><span class="ticker-item">★ DW Windows & Guttering</span><span class="ticker-item">★ Liam Ridley</span><span class="ticker-item">★ Knowles Signs</span><span class="ticker-item">★ Green Gorilla Tree Surgeon</span><span class="ticker-item">★ Dave Hemmings Plastering</span><span class="ticker-item">★ Freemasons — Avon Vale Lodge</span><span class="ticker-item">★ Wickwar Strength & Fitness</span><span class="ticker-item">★ Spark Gin</span><span class="ticker-item">★ Health Edge Ltd</span><span class="ticker-item">★ Gawler Tapes</span><span class="ticker-item">★ Sabre</span><span class="ticker-item">★ Freedom Gym</span><span class="ticker-item">★ BLW Construction</span><span class="ticker-item">★ The Beaufort Hunt Pub</span><span class="ticker-item">★ Sodbury Surfacing</span><span class="ticker-item">★ The Squire Pub</span><span class="ticker-item">★ The Old Bank Hotel</span><span class="ticker-item">★ Downend Flooring & Tiling</span><span class="ticker-item">★ Milburys Estate Agents</span><span class="ticker-item">★ Prestige Roofing Ltd</span><span class="ticker-item">★ Lusso Venetian Plastering</span><span class="ticker-item">★ Kindle Woodburner</span><span class="ticker-item">★ Commando Boot Camp 100 Club</span>
+        </div>
       </div>
     </div>
 
-    <div class="sponsor-cta reveal">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <a href="sponsors.html" class="btn-outline" style="font-size:0.9rem; padding:0.8rem 2.5rem;">View All Sponsors &amp; Support the Event →</a>
+    </div>
+
+        <div class="sponsor-cta reveal">
       <p>Interested in sponsoring 24 STRONG?</p>
       <strong>Get in touch — Lee Ralph: 07713 241622</strong>
     </div>

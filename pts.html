@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the PTs — 24 STRONG</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0d0d0d; --dark: #141414; --dark2: #1c1c1c; --dark3: #242424;
+    --amber: #e8960f; --amber-light: #f5a623; --white: #ffffff; --grey: #a0a0a0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; }
+
+  /* NAV */
+  nav {
+    position: sticky; top:0; z-index:900;
+    background: rgba(13,13,13,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232,150,15,0.2);
+    padding: 0 1.5rem; height:60px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.2rem; letter-spacing:0.05em; color:var(--white); text-decoration:none; }
+  .nav-logo span { color:var(--amber); }
+  .nav-back { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); text-decoration:none; transition:color 0.2s; }
+  .nav-back:hover { color:var(--amber); }
+  .btn-primary { display:inline-block; background:var(--amber); color:var(--black); font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none; padding:0.6rem 1.5rem; transition:all 0.2s; }
+  .btn-primary:hover { background:var(--amber-light); }
+
+  /* HERO */
+  .page-hero {
+    background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);
+    border-bottom: 1px solid rgba(232,150,15,0.15);
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+  }
+  .page-hero-label { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--amber); margin-bottom:0.75rem; display:block; }
+  .page-hero-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(2.5rem,8vw,5rem); text-transform:uppercase; line-height:0.9; margin-bottom:1rem; }
+  .page-hero-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:540px; margin:0 auto 2rem; line-height:1.7; }
+
+  /* COMING SOON BANNER */
+  .coming-soon-banner {
+    background: linear-gradient(90deg, rgba(232,150,15,0.1), rgba(232,150,15,0.05));
+    border: 1px solid rgba(232,150,15,0.3);
+    border-left: 4px solid var(--amber);
+    padding: 1.25rem 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .coming-soon-banner p { font-family:'Barlow',sans-serif; font-weight:400; font-size:0.85rem; color:rgba(255,255,255,0.6); text-transform:none; letter-spacing:0; margin-top:0.4rem; }
+
+  /* GRID */
+  .container { max-width:1100px; margin:0 auto; padding: 3rem 1.5rem 5rem; }
+  .pts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* PT CARD */
+  .pt-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .pt-card:hover { border-color: rgba(232,150,15,0.4); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+  .pt-card:target { border-color: var(--amber); box-shadow: 0 0 0 2px var(--amber); }
+
+  .pt-photo-placeholder {
+    width:100%; height:200px;
+    background: var(--dark3);
+    display:flex; align-items:center; justify-content:center;
+    border-bottom: 1px solid rgba(232,150,15,0.1);
+    position: relative;
+  }
+  .pt-photo-placeholder::after {
+    content:'PHOTO COMING SOON';
+    position:absolute; bottom:0.5rem; left:50%; transform:translateX(-50%);
+    font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2);
+  }
+  .pt-photo-icon { font-size:4rem; opacity:0.15; }
+
+  .pt-card-body { padding:1.25rem 1.5rem; flex:1; display:flex; flex-direction:column; }
+  .pt-session-tag {
+    font-family:'Barlow Condensed',sans-serif; font-weight:700;
+    font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--amber); margin-bottom:0.5rem;
+  }
+  .pt-name { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.4rem; text-transform:uppercase; letter-spacing:0.02em; margin-bottom:0.2rem; }
+  .pt-business { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:0.9rem; color:var(--grey); margin-bottom:1rem; }
+  .pt-bio { font-size:0.85rem; line-height:1.6; color:rgba(255,255,255,0.5); flex:1; margin-bottom:1rem; font-style:italic; }
+  .pt-socials { margin-top:auto; }
+  .pt-social-placeholder { font-size:0.75rem; color:rgba(255,255,255,0.2); font-style:italic; }
+
+  /* FOOTER */
+  footer { background:#080808; border-top:1px solid rgba(232,150,15,0.15); padding:2rem 1.5rem; text-align:center; }
+  .footer-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:2rem; text-transform:uppercase; margin-bottom:0.25rem; }
+  .footer-logo span { color:var(--amber); }
+  .footer-links { display:flex; justify-content:center; gap:1.5rem; margin-top:1rem; flex-wrap:wrap; }
+  .footer-links a { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); text-decoration:none; }
+  .footer-links a:hover { color:var(--amber); }
+
+  @media(max-width:600px) {
+    .pts-grid { grid-template-columns: 1fr 1fr; gap:1rem; }
+    .pt-photo-placeholder { height:140px; }
+  }
+  @media(max-width:400px) {
+    .pts-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">24 <span>STRONG</span></a>
+  <a href="index.html" class="nav-back">← Back to Event</a>
+  <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-primary">Get Tickets</a>
+</nav>
+
+<div class="page-hero">
+  <span class="page-hero-label">The Trainers</span>
+  <h1 class="page-hero-title">Meet Your PTs</h1>
+  <p class="page-hero-sub">24 personal trainers. 24 sessions. Every one of them showing up for Megan and for this community. Get to know the team leading the charge.</p>
+  <div class="coming-soon-banner">
+    🏋️ Full profiles dropping soon
+    <p>We're collecting bios, photos and social links from all 24 PTs. Check back here as profiles go live — or tap a name in the schedule to jump straight to their card.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="pts-grid">
+    
+      <div class="pt-card" id="josh-stevenson">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">5:00PM Fri 3rd &nbsp;·&nbsp; Bootcamp</div>
+          <h3 class="pt-name">Josh Stevenson</h3>
+          <div class="pt-business">The Conditioning Zone</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="tash-lysandrou">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">6:00PM Fri 3rd &nbsp;·&nbsp; Step Class</div>
+          <h3 class="pt-name">Tash Lysandrou</h3>
+          <div class="pt-business">The Conditioning Zone</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="warren-shepherd">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">7:00PM Fri 3rd &nbsp;·&nbsp; Boxing</div>
+          <h3 class="pt-name">Warren Shepherd</h3>
+          <div class="pt-business">Freedom in the Fire</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="kristina-foster-pullen">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">8:00PM Fri 3rd &nbsp;·&nbsp; Full Body Fitness</div>
+          <h3 class="pt-name">Kristina Foster-Pullen</h3>
+          <div class="pt-business">FP Fitness & Mushroom Programming</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="ant-crocker">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">9:00PM Fri 3rd &nbsp;·&nbsp; HIIT / Strength</div>
+          <h3 class="pt-name">Ant Crocker</h3>
+          <div class="pt-business">Ant Crocker</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="faith-newport">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">10:00PM Fri 3rd &amp; 7:00AM Sat 4th &nbsp;·&nbsp; Street Dance &amp; Line Dancing</div>
+          <h3 class="pt-name">Faith Newport</h3>
+          <div class="pt-business">STREETCRED</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="sean-suleman">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">11:00PM Fri 3rd &nbsp;·&nbsp; Boxercise</div>
+          <h3 class="pt-name">Sean Suleman</h3>
+          <div class="pt-business">Boxing Fit</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="james-amos">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">12AM–5AM Sat 4th &nbsp;·&nbsp; OrbFit, JuJitsu, Night Run &amp; more</div>
+          <h3 class="pt-name">James Amos</h3>
+          <div class="pt-business">Wickwar Strength &amp; Fitness</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="faye-benjamin">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">1:00AM &amp; 5:00AM Sat 4th &nbsp;·&nbsp; Hyrox &amp; Reset Walk</div>
+          <h3 class="pt-name">Faye Benjamin</h3>
+          <div class="pt-business">Wickwar Strength &amp; Fitness</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="hannah-brocklesby">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">6:00AM Sat 4th &nbsp;·&nbsp; Sunrise Pilates</div>
+          <h3 class="pt-name">Hannah Brocklesby</h3>
+          <div class="pt-business">Wotton Pilates</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="tilly-wyatt">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">8:00AM Sat 4th &nbsp;·&nbsp; Hyrox</div>
+          <h3 class="pt-name">Tilly Wyatt</h3>
+          <div class="pt-business">TWL Personal Training</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="james-bennett">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">10:00AM Sat 4th &nbsp;·&nbsp; Rugby Inspired HIIT</div>
+          <h3 class="pt-name">James Bennett</h3>
+          <div class="pt-business">Foundation Fitness Ltd</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="michael-jordan">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">11:00AM Sat 4th &nbsp;·&nbsp; Hyrox Conditioning</div>
+          <h3 class="pt-name">Michael Jordan</h3>
+          <div class="pt-business">MJ</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="sam-hillier">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">12:00PM Sat 4th &nbsp;·&nbsp; Strength &amp; Cardio</div>
+          <h3 class="pt-name">Sam Hillier</h3>
+          <div class="pt-business">Stronger with Sam</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="jason-michael">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">1:00PM Sat 4th &nbsp;·&nbsp; Bodyweight Bootcamp</div>
+          <h3 class="pt-name">Jason Michael</h3>
+          <div class="pt-business">JJM Fitness</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="craig-base">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">2:00PM Sat 4th &nbsp;·&nbsp; Comedy Running</div>
+          <h3 class="pt-name">Craig Base</h3>
+          <div class="pt-business">Base Race</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="aimee-waters">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">3:00PM Sat 4th &nbsp;·&nbsp; CrossFit Bodyweight</div>
+          <h3 class="pt-name">Aimee Waters</h3>
+          <div class="pt-business">CrossFit Yate</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-card" id="commando-boot-camp">
+        <div class="pt-photo-placeholder">
+          <span class="pt-photo-icon">👤</span>
+        </div>
+        <div class="pt-card-body">
+          <div class="pt-session-tag">4:00PM Sat 4th &nbsp;·&nbsp; Fun Finisher 🎉</div>
+          <h3 class="pt-name">Commando Boot Camp</h3>
+          <div class="pt-business">Commando Boot Camp</div>
+          <p class="pt-bio">Bio coming soon — watch this space!</p>
+          <div class="pt-socials">
+            <span class="pt-social-placeholder">Social links coming soon</span>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">24 <span>STRONG</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#schedule">Schedule</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank">Get Tickets</a>
+    <a href="https://www.instagram.com/commandobootcampfundraising" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>

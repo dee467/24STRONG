@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sponsors — 24 STRONG</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0d0d0d; --dark: #141414; --dark2: #1c1c1c; --dark3: #242424;
+    --amber: #e8960f; --amber-light: #f5a623; --white: #ffffff; --grey: #a0a0a0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; }
+
+  nav {
+    position: sticky; top:0; z-index:900;
+    background: rgba(13,13,13,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232,150,15,0.2);
+    padding: 0 1.5rem; height:60px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.2rem; letter-spacing:0.05em; color:var(--white); text-decoration:none; }
+  .nav-logo span { color:var(--amber); }
+  .nav-back { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); text-decoration:none; transition:color 0.2s; }
+  .nav-back:hover { color:var(--amber); }
+  .btn-primary { display:inline-block; background:var(--amber); color:var(--black); font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none; padding:0.6rem 1.5rem; transition:all 0.2s; }
+  .btn-primary:hover { background:var(--amber-light); }
+
+  .page-hero {
+    background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);
+    border-bottom: 1px solid rgba(232,150,15,0.15);
+    padding: 4rem 1.5rem 3rem; text-align: center;
+  }
+  .page-hero-label { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--amber); margin-bottom:0.75rem; display:block; }
+  .page-hero-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(2.5rem,8vw,5rem); text-transform:uppercase; line-height:0.9; margin-bottom:1rem; }
+  .page-hero-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:600px; margin:0 auto 2rem; line-height:1.7; }
+
+  /* FEATURED SPONSOR */
+  .featured-wrap { max-width:1100px; margin:0 auto; padding: 2.5rem 1.5rem 0; }
+  .featured-sponsor {
+    background: linear-gradient(135deg, rgba(232,150,15,0.1) 0%, var(--dark2) 60%);
+    border: 2px solid var(--amber); padding: 2.5rem;
+    display:flex; align-items:center; gap:2rem; flex-wrap:wrap;
+    margin-bottom: 3rem;
+  }
+  .featured-sponsor-badge { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--black); background:var(--amber); padding:0.3rem 0.75rem; display:inline-block; margin-bottom:0.75rem; }
+  .featured-sponsor-name { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(1.5rem,5vw,2.2rem); text-transform:uppercase; letter-spacing:0.03em; }
+  .featured-sponsor-desc { font-size:0.95rem; line-height:1.7; color:rgba(255,255,255,0.7); margin-top:0.5rem; max-width:500px; }
+
+  /* SPONSOR GRID */
+  .container { max-width:1100px; margin:0 auto; padding: 0 1.5rem 5rem; }
+  .section-title { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.1rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--amber); margin-bottom:1.5rem; padding-bottom:0.5rem; border-bottom:1px solid rgba(232,150,15,0.2); }
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px; background: var(--dark3);
+    border: 1px solid var(--dark3); margin-bottom:3rem;
+  }
+  .sponsor-card { background:var(--dark2); padding:1.5rem; transition:background 0.2s; }
+  .sponsor-card:hover { background:var(--dark3); }
+  .sponsor-card:target { outline: 2px solid var(--amber); }
+  .sponsor-logo-placeholder {
+    width:100%; height:70px;
+    background:rgba(255,255,255,0.03);
+    border:1px dashed rgba(232,150,15,0.2);
+    margin-bottom:1rem;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .sponsor-logo-placeholder::after { content:'LOGO'; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.6rem; letter-spacing:0.2em; color:rgba(232,150,15,0.25); }
+  .sponsor-name { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.1rem; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:0.2rem; }
+  .sponsor-contact { font-size:0.78rem; color:var(--grey); margin-bottom:0.75rem; font-style:italic; }
+  .sponsor-bio { font-size:0.82rem; line-height:1.6; color:rgba(255,255,255,0.45); margin-bottom:0.75rem; }
+  .sponsor-social-placeholder { font-size:0.72rem; color:rgba(255,255,255,0.2); font-style:italic; }
+
+  /* CTA */
+  .sponsor-cta { background:var(--dark2); border:1px solid var(--dark3); padding:2rem; text-align:center; margin-top:1rem; }
+  .sponsor-cta p { font-size:0.95rem; color:rgba(255,255,255,0.65); margin-bottom:0.25rem; }
+  .sponsor-cta strong { font-family:'Barlow Condensed',sans-serif; font-size:1.1rem; color:var(--amber); letter-spacing:0.05em; }
+
+  footer { background:#080808; border-top:1px solid rgba(232,150,15,0.15); padding:2rem 1.5rem; text-align:center; }
+  .footer-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:2rem; text-transform:uppercase; margin-bottom:0.5rem; }
+  .footer-logo span { color:var(--amber); }
+  .footer-links { display:flex; justify-content:center; gap:1.5rem; margin-top:1rem; flex-wrap:wrap; }
+  .footer-links a { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); text-decoration:none; }
+  .footer-links a:hover { color:var(--amber); }
+
+  @media(max-width:600px) {
+    .sponsors-grid { grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">24 <span>STRONG</span></a>
+  <a href="index.html" class="nav-back">← Back to Event</a>
+  <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-primary">Get Tickets</a>
+</nav>
+
+<div class="page-hero">
+  <span class="page-hero-label">Our Supporters</span>
+  <h1 class="page-hero-title">Our Amazing Sponsors</h1>
+  <p class="page-hero-sub">24 STRONG wouldn't be possible without the incredible support of these local businesses and individuals. Every pound they've committed goes directly toward Megan's specialist wheelchair and care. Thank you.</p>
+</div>
+
+<div class="featured-wrap">
+  <div class="featured-sponsor">
+    <div style="flex:1; min-width:260px;">
+      <span class="featured-sponsor-badge">Specialist Wheelchair Sponsor</span>
+      <div class="featured-sponsor-name">Pearce Healthcare and Mobility</div>
+      <p class="featured-sponsor-desc">Our headline sponsor, proudly supporting Megan's specialist wheelchair and making this whole event possible. Thank you to Pearce Healthcare and Mobility for their incredible generosity and commitment to changing Megan's life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-title">Event Sponsors</div>
+  <div class="sponsors-grid">
+    
+      <div class="sponsor-card" id="functional-sports-therapy">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Functional Sports Therapy</div>
+        <div class="sponsor-contact">Frankie Nutt</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="dreams2reality">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Dreams2Reality</div>
+        <div class="sponsor-contact">Cameron Parker</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="dw-windows-and-guttering">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">DW Windows & Guttering</div>
+        <div class="sponsor-contact">Dean Spratt-Wyatt</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="liam-ridley">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Liam Ridley</div>
+        <div class="sponsor-contact">Individual Sponsor</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="knowles-signs">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Knowles Signs</div>
+        <div class="sponsor-contact">Oliver Knowles</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="green-gorilla-tree-surgeon">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Green Gorilla Tree Surgeon</div>
+        <div class="sponsor-contact">Matt Fisher</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="dave-hemmings-plastering">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Dave Hemmings Plastering</div>
+        <div class="sponsor-contact">Dave Hemmings</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="freemasons--avon-vale-lodge">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Freemasons — Avon Vale Lodge</div>
+        <div class="sponsor-contact">Lee White</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="wickwar-strength-and-fitness">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Wickwar Strength & Fitness</div>
+        <div class="sponsor-contact">James Amos</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="spark-gin">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Spark Gin</div>
+        <div class="sponsor-contact">Stewart Stacey</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="health-edge-ltd">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Health Edge Ltd</div>
+        <div class="sponsor-contact">Phil Player</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="gawler-tapes">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Gawler Tapes</div>
+        <div class="sponsor-contact">Mark Jones</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="sabre">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Sabre</div>
+        <div class="sponsor-contact">Jesse Malone</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="freedom-gym">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Freedom Gym</div>
+        <div class="sponsor-contact">James Bennett</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="blw-construction">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">BLW Construction</div>
+        <div class="sponsor-contact">Martin Seymour-Williams</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="the-beaufort-hunt-pub">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">The Beaufort Hunt Pub</div>
+        <div class="sponsor-contact">Mike Harrington</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="sodbury-surfacing">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Sodbury Surfacing</div>
+        <div class="sponsor-contact">James Faulkener</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="the-squire-pub">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">The Squire Pub</div>
+        <div class="sponsor-contact">Greg Gale</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="the-old-bank-hotel">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">The Old Bank Hotel</div>
+        <div class="sponsor-contact">Derek & Fi</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="downend-flooring-and-tiling">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Downend Flooring & Tiling</div>
+        <div class="sponsor-contact">Daryl Griffee</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="milburys-estate-agents">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Milburys Estate Agents</div>
+        <div class="sponsor-contact">Leyla Wood</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="prestige-roofing-ltd">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Prestige Roofing Ltd</div>
+        <div class="sponsor-contact">Lee Matthews</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="lusso-venetian-plastering">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Lusso Venetian Plastering</div>
+        <div class="sponsor-contact">Ash</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="kindle-woodburner">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Kindle Woodburner</div>
+        <div class="sponsor-contact">James Carlisle</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+      <div class="sponsor-card" id="commando-boot-camp-100-club">
+        <div class="sponsor-logo-placeholder"></div>
+        <div class="sponsor-name">Commando Boot Camp 100 Club</div>
+        <div class="sponsor-contact">Community Supporters</div>
+        <p class="sponsor-bio">Tell us about your business — send your logo, a short bio and your social links to <a href="mailto:commandobootcampfundraising@gmail.com" style="color:var(--amber);">commandobootcampfundraising@gmail.com</a></p>
+        <div class="sponsor-social-placeholder">Social / website links coming soon</div>
+      </div>
+  </div>
+
+  <div class="sponsor-cta">
+    <p>Interested in sponsoring 24 STRONG?</p>
+    <strong>Get in touch — Lee Ralph: 07713 241622</strong>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">24 <span>STRONG</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#schedule">Schedule</a>
+    <a href="pts.html">Meet the PTs</a>
+    <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank">Get Tickets</a>
+    <a href="https://www.instagram.com/commandobootcampfundraising" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>
