@@ -736,14 +736,41 @@
   .schedule-header-cell:nth-child(2),
   .schedule-header-cell:nth-child(3) { padding-left: 1.25rem; }
 
-  @media (max-width: 500px) {
-    .session-row { grid-template-columns: 80px 1fr; }
-    .session-pt { display: none; }
-    .schedule-header { grid-template-columns: 80px 1fr; }
+  @media (max-width: 640px) {
+    /* Stack all 3 columns into 2: time | session+pt combined */
+    .session-row { grid-template-columns: 72px 1fr; }
+    .schedule-header { grid-template-columns: 72px 1fr; }
     .schedule-header-cell:last-child { display: none; }
-    .session-type { border-right: none; }
-    .session-type-text { font-size: 0.95rem; }
-    .time-main { font-size: 1rem; }
+    .session-time { padding: 0.75rem 0.5rem; }
+    .time-main { font-size: 0.95rem; }
+    .time-day { font-size: 0.6rem; }
+    /* Session type + PT stacked in one column */
+    .session-type {
+      border-right: none;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.75rem 0.75rem 0.5rem;
+      gap: 0.2rem;
+    }
+    .session-type-text { font-size: 0.9rem; }
+    /* Hide pt column — info shown inline below session type */
+    .session-pt { display: none; }
+    /* Add PT info directly after session-type-text via CSS on session-type */
+  }
+  @media (max-width: 640px) {
+    /* Show PT name inline under session type using after content approach */
+    .session-type::after {
+      content: attr(data-pt);
+      font-family: "Barlow", sans-serif;
+      font-size: 0.75rem;
+      color: #555;
+      font-weight: 600;
+      display: block;
+      margin-top: 0.15rem;
+    }
+    .session-row.wickwar .session-type::after {
+      color: #aaa;
+    }
   }
 
   /* FAMILY FUN DAY */
@@ -1131,7 +1158,7 @@
         <span class="stat-label">Only</span>
       </div>
     </div>
-    <p class="hero-hook">24 personal trainers. 24 consecutive hours. One incredible community rallying together for Megan Dixon — a 21-year-old facing life-changing surgery who needs a specialist wheelchair to rebuild her independence.</p>
+    <p class="hero-hook">24 consecutive hours. One incredible community rallying together for Megan Dixon — a 21-year-old facing life-changing surgery who needs a specialist wheelchair to rebuild her independence.</p>
     <div class="hero-ctas">
       <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-primary">Book Tickets</a>
       <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline">Donate</a>
@@ -1150,7 +1177,7 @@
         <h2 class="section-title">What is<br>24 Strong?</h2>
         <div class="amber-line"></div>
         <div class="about-body">
-          <p>24 STRONG is a 24-hour relay bootcamp — 24 personal trainers, each leading one power-packed hour-long session back to back. From 5PM on Friday 3rd July through to 5PM on Saturday 4th July, the sessions never stop and neither do we.</p>
+          <p>24 STRONG is a 24-hour relay bootcamp — back-to-back sessions led by an incredible lineup of local PTs, each bringing their own unique style. From 5PM on Friday 3rd July through to 5PM on Saturday 4th July, the sessions never stop and neither do we.</p>
           <p>Whether you're here for one session, a few hours, or the full 24-hour challenge — all fitness levels are welcome. Join for a drop-in, go the distance, or bring the whole family.</p>
           <p>Overnight sessions (midnight through to dawn) move offsite to Wickwar Strength &amp; Fitness — a purpose-built gym keeping the energy going through the witching hours.</p>
         </div>
@@ -1266,37 +1293,37 @@
         <!-- Friday evening -->
         <div class="session-row">
           <div class="session-time"><span class="time-main">5:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">Bootcamp</span></div>
+          <div class="session-type" data-pt="Josh Stevenson"><span class="session-type-text">Bootcamp</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#josh-stevenson" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Josh Stevenson</a></span><span class="pt-business">The Conditioning Zone</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">6:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">Step Class</span></div>
+          <div class="session-type" data-pt="Tash Lysandrou"><span class="session-type-text">Step Class</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#tash-lysandrou" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Tash Lysandrou</a></span><span class="pt-business">The Conditioning Zone</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">7:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">Boxing</span></div>
+          <div class="session-type" data-pt="Warren Shepherd"><span class="session-type-text">Boxing</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#warren-shepherd" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Warren Shepherd</a></span><span class="pt-business">Freedom in the Fire</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">8:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">Full Body Fitness</span></div>
+          <div class="session-type" data-pt="Kristina Foster-Pullen"><span class="session-type-text">Full Body Fitness</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#kristina-foster-pullen" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Kristina Foster-Pullen</a></span><span class="pt-business">FP Fitness &amp; Mushroom Programming</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">9:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">HIIT / Strength</span></div>
+          <div class="session-type" data-pt="Ant Crocker"><span class="session-type-text">HIIT / Strength</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#ant-crocker" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Ant Crocker</a></span><span class="pt-business">Ant Crocker</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">10:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">Street Dance</span></div>
+          <div class="session-type" data-pt="Faith Newport"><span class="session-type-text">Street Dance</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#faith-newport" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faith Newport</a></span><span class="pt-business">STREETCRED</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">11:00PM</span><span class="time-day">Fri 3rd</span></div>
-          <div class="session-type"><span class="session-type-text">Boxercise</span></div>
+          <div class="session-type" data-pt="Sean Suleman"><span class="session-type-text">Boxercise</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#sean-suleman" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Sean Suleman</a></span><span class="pt-business">Boxing Fit</span></div>
         </div>
 
@@ -1308,32 +1335,32 @@
 
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>12:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">OrbFit</span></div>
+          <div class="session-type" data-pt="James Amos"><span class="session-type-text">OrbFit</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>1:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Hyrox</span></div>
+          <div class="session-type" data-pt="Faye Benjamin"><span class="session-type-text">Hyrox</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#faye-benjamin" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faye Benjamin</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>2:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">JuJitsu / Wrestling</span></div>
+          <div class="session-type" data-pt="James Amos"><span class="session-type-text">JuJitsu / Wrestling</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>3:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Night Log Run</span></div>
+          <div class="session-type" data-pt="James Amos"><span class="session-type-text">Night Log Run</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>4:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Sports Day Team Battle</span></div>
+          <div class="session-type" data-pt="James Amos"><span class="session-type-text">Sports Day Team Battle</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#james-amos" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Amos</a></span><span class="pt-business">Wickwar Strength &amp; Fitness</span></div>
         </div>
         <div class="session-row wickwar">
           <div class="session-time"><span class="time-main"><span class="time-icon">🌙</span>5:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Reset Walk</span></div>
+          <div class="session-type" data-pt="Faye Benjamin"><span class="session-type-text">Reset Walk</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#faye-benjamin" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faye Benjamin</a></span><span class="pt-business">Faye Benjamin</span></div>
         </div>
 
@@ -1345,57 +1372,57 @@
 
         <div class="session-row">
           <div class="session-time"><span class="time-main"><span class="time-icon">☀️</span>6:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Sunrise Pilates</span></div>
+          <div class="session-type" data-pt="Hannah Brocklesby"><span class="session-type-text">Sunrise Pilates</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#hannah-brocklesby" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Hannah Brocklesby</a></span><span class="pt-business">Wotton Pilates</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">7:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Line Dancing</span></div>
+          <div class="session-type" data-pt="Faith Newport"><span class="session-type-text">Line Dancing</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#faith-newport" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Faith Newport</a></span><span class="pt-business">STREETCRED</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">8:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Hyrox</span></div>
+          <div class="session-type" data-pt="Tilly Wyatt"><span class="session-type-text">Hyrox</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#tilly-wyatt" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Tilly Wyatt</a></span><span class="pt-business">TWL Personal Training</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">9:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Park Run / Jog / Walk</span></div>
+          <div class="session-type" data-pt="Community Park Run"><span class="session-type-text">Park Run / Jog / Walk</span></div>
           <div class="session-pt"><span class="pt-name">Community Park Run</span><span class="pt-business">Community</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">10:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Rugby Inspired HIIT</span></div>
+          <div class="session-type" data-pt="James Bennett"><span class="session-type-text">Rugby Inspired HIIT</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#james-bennett" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">James Bennett</a></span><span class="pt-business">Foundation Fitness Ltd</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">11:00AM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Hyrox Conditioning</span></div>
+          <div class="session-type" data-pt="Michael Jordan"><span class="session-type-text">Hyrox Conditioning</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#michael-jordan" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Michael Jordan</a></span><span class="pt-business">MJ</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">12:00PM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Strength &amp; Cardio</span></div>
+          <div class="session-type" data-pt="Sam Hillier"><span class="session-type-text">Strength &amp; Cardio</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#sam-hillier" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Sam Hillier</a></span><span class="pt-business">Stronger with Sam</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">1:00PM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Bodyweight Bootcamp</span></div>
+          <div class="session-type" data-pt="Jason Michael"><span class="session-type-text">Bodyweight Bootcamp</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#jason-michael" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Jason Michael</a></span><span class="pt-business">JJM Fitness</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">2:00PM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">Comedy Running</span></div>
+          <div class="session-type" data-pt="Craig Base"><span class="session-type-text">Comedy Running</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#craig-base" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Craig Base</a></span><span class="pt-business">Base Race</span></div>
         </div>
         <div class="session-row">
           <div class="session-time"><span class="time-main">3:00PM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">CrossFit Bodyweight</span></div>
+          <div class="session-type" data-pt="Aimee Waters"><span class="session-type-text">CrossFit Bodyweight</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#aimee-waters" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Aimee Waters</a></span><span class="pt-business">CrossFit Yate</span></div>
         </div>
         <div class="session-row" style="border-bottom: 2px solid #b87200;">
           <div class="session-time"><span class="time-main">4:00PM</span><span class="time-day">Sat 4th</span></div>
-          <div class="session-type"><span class="session-type-text">🎉 Fun Finisher</span></div>
+          <div class="session-type" data-pt="Commando Boot Camp"><span class="session-type-text">🎉 Fun Finisher</span></div>
           <div class="session-pt"><span class="pt-name"><a href="pts.html#commando-boot-camp" style="color:inherit; text-decoration:none; border-bottom: 1px dotted rgba(0,0,0,0.3);" onmouseover="this.style.color='#b87200'" onmouseout="this.style.color='inherit'">Commando Boot Camp</a></span><span class="pt-business">Closing Session — details coming soon!</span></div>
         </div>
 
