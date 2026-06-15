@@ -9,14 +9,16 @@
   :root {
     --black: #0d0d0d;
     --dark: #141414;
-    --dark2: #1c1c1c;
-    --dark3: #242424;
-    --amber: #e8960f;
-    --amber-light: #f5a623;
-    --amber-dim: #b5720a;
+    --dark2: #1a1a1a;
+    --dark3: #222222;
+    --amber: #edff92;
+    --amber-light: #f5ffb0;
+    --amber-dim: #b8cc50;
     --white: #ffffff;
     --grey: #a0a0a0;
     --grey-dim: #555;
+    --accent-night: #7d9ad3;
+    --accent-cta: #f5a020;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,7 +89,7 @@
   .nav-links a:hover { color: var(--white); }
 
   .nav-cta {
-    background: var(--amber) !important;
+    background: #edff92 !important;
     color: var(--black) !important;
     padding: 0.4rem 0.8rem !important;
     font-weight: 900 !important;
@@ -316,8 +318,8 @@
   /* ── BUTTONS ── */
   .btn-primary {
     display: inline-block;
-    background: var(--amber);
-    color: var(--black);
+    background: #edff92;
+    color: #111111;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 1rem;
@@ -367,7 +369,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--amber);
+    color: #edff92;
     margin-bottom: 0.75rem;
     display: block;
     text-align: center;
@@ -387,7 +389,7 @@
   .amber-line {
     width: 60px;
     height: 3px;
-    background: var(--amber);
+    background: #edff92;
     margin: 0 auto 2rem;
   }
 
@@ -430,8 +432,8 @@
     content: '♥';
     position: absolute;
     top: -12px; right: 1.5rem;
-    background: var(--amber);
-    color: var(--black);
+    background: #edff92;
+    color: #111111;
     width: 24px; height: 24px;
     display: flex; align-items: center; justify-content: center;
     font-size: 0.75rem;
@@ -497,8 +499,8 @@
     content: 'MOST POPULAR';
     position: absolute;
     top: -1px; right: -1px;
-    background: var(--amber);
-    color: var(--black);
+    background: #edff92;
+    color: #111111;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 0.6rem;
@@ -562,7 +564,7 @@
     position: absolute;
     bottom: -2px; left: 0; right: 0;
     height: 2px;
-    background: var(--amber);
+    background: #edff92;
     transform: scaleX(0);
     transition: transform 0.2s;
   }
@@ -596,7 +598,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #111;
-    background-color: #f5c842;
+    background-color: #edff92;
   }
   .schedule-venue-banner .banner-icon { font-size: 1.2rem; }
 
@@ -633,7 +635,7 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: #b87200;
+    color: #b8cc50;
     line-height: 1;
     white-space: nowrap;
   }
@@ -721,7 +723,7 @@
     display: grid;
     grid-template-columns: 100px 1fr 1fr;
     background: #1a1a1a;
-    border-bottom: 2px solid var(--amber);
+    border-bottom: 2px solid #edff92;
     margin-bottom: 0;
   }
   .schedule-header-cell {
@@ -854,7 +856,7 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--black);
-    background: var(--amber);
+    background: #edff92;
     padding: 0.3rem 0.75rem;
     display: inline-block;
     margin-bottom: 0.75rem;
@@ -1033,7 +1035,7 @@
   .footer-divider {
     width: 40px;
     height: 2px;
-    background: var(--amber);
+    background: #edff92;
     margin: 1.5rem auto;
     opacity: 0.4;
   }
@@ -1158,7 +1160,7 @@
         <span class="stat-label">Only</span>
       </div>
     </div>
-    <p class="hero-hook">24 consecutive hours. One incredible community rallying together for Megan Dixon — a 21-year-old facing life-changing surgery who needs a specialist wheelchair to rebuild her independence.</p>
+    <p class="hero-hook">24 hours. 24 sessions. One incredible community rallying together for Megan Dixon. Your £24 ticket gets you access to every single session — come for one, a few, or go the full 24. You choose. Every session counts.</p>
     <div class="hero-ctas">
       <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-primary">Book Tickets</a>
       <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline">Donate</a>
@@ -1239,32 +1241,64 @@
     <span class="section-label">Join Us</span>
     <h2 class="section-title reveal">Get Your Tickets</h2>
     <div class="amber-line"></div>
+    <!-- Ticket intro note -->
+    <p style="text-align:center; font-size:1rem; color:rgba(255,255,255,0.6); max-width:640px; margin: 0 auto 2.5rem; line-height:1.7;">Pick the ticket that works for you — come for one session, a few, or go all in for the full 24 hours. Every ticket helps us raise money for Megan.</p>
+
     <div class="tickets-grid reveal">
-      <div class="ticket-card featured">
+
+      <!-- FULL EVENT - HERO TICKET -->
+      <div class="ticket-card featured" style="grid-column: span 1;">
+        <div style="background:#edff92; color:var(--black); font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:0.3rem 0.75rem; display:inline-block; margin-bottom:0.75rem;">Best Value</div>
         <div class="ticket-price"><sup>£</sup>24</div>
-        <div class="ticket-name">Full Event</div>
-        <p class="ticket-desc">Your all-access pass to the full event — Friday 5PM through to Saturday 5PM. Come to one session, a handful, or every single one. There's zero pressure to do it all. Show up when you can, do what you can, and be part of something brilliant. Yellow wristband on arrival. Entry into the Warrior Prize Draw for completing all 24 hours.</p>
-        <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Book Now</a>
+        <div class="ticket-name">Unlimited Event Pass</div>
+        <p class="ticket-desc">The ultimate 24 STRONG experience. Your pass covers every single session — all 24 hours from Friday 5PM to Saturday 5PM. Come and go as you please, dip in and out, stay for a few sessions or go the full distance. No pressure, no limits. Yellow wristband on arrival. Entry into the Warrior Prize Draw for completing all 24 hours.</p>
+        <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Book Now — £24</a>
       </div>
+
+      <!-- 3 CLASS PASS -->
+      <div class="ticket-card">
+        <div class="ticket-price"><sup>£</sup>15</div>
+        <div class="ticket-name">3 Session Pass</div>
+        <p class="ticket-desc">Pick any 3 sessions from the schedule and show up for those. Perfect if you want a taste of a few different styles without committing to the full event. Want to stay longer on the day? Upgrade to the Unlimited Pass at the venue.</p>
+        <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Book Now — £15</a>
+      </div>
+
+      <!-- 1 CLASS PASS -->
+      <div class="ticket-card">
+        <div class="ticket-price"><sup>£</sup>8</div>
+        <div class="ticket-name">Single Session Pass</div>
+        <p class="ticket-desc">Choose one session from the schedule, show up, and give it everything. A great way to try something new, support the cause, and see what 24 STRONG is all about. Fancy staying for more? Upgrade on the day.</p>
+        <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Book Now — £8</a>
+      </div>
+
+      <!-- TEEN -->
       <div class="ticket-card">
         <div class="ticket-price"><sup>£</sup>12</div>
-        <div class="ticket-name">Teen Ticket</div>
-        <p class="ticket-desc">Ages 14–19. Full event access. Under 16s must be accompanied by a responsible adult at all times throughout the event.</p>
-        <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Book Now</a>
+        <div class="ticket-name">Teen Unlimited Pass</div>
+        <p class="ticket-desc">Ages 14–19. Full event access — come and go across all 24 hours just like the adult Unlimited Pass. Under 16s must be accompanied by a responsible adult at all times.</p>
+        <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Book Now — £12</a>
       </div>
+
+      <!-- UNDER 14s -->
       <div class="ticket-card">
         <div class="ticket-price">FREE</div>
         <div class="ticket-name">Under 14s</div>
-        <p class="ticket-desc">Kids go free! Must be accompanied by a responsible adult at all times. All under 16s require adult supervision throughout the event.</p>
+        <p class="ticket-desc">Kids go free! Must be accompanied by a responsible adult at all times throughout the event.</p>
         <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Register Free</a>
       </div>
+
+      <!-- DONATE -->
       <div class="ticket-card">
         <div class="ticket-price" style="font-size:clamp(2rem,6vw,3rem); line-height:1;">DONATE</div>
         <div class="ticket-name">Your Choice</div>
         <p class="ticket-desc">Can't make it but want to support Megan? Every penny counts. Make a voluntary donation and help us reach our goal.</p>
         <a href="https://www.tickettailor.com/events/commandobootcamp/2212791" target="_blank" class="btn-outline" style="font-size:0.85rem; padding:0.7rem 1.5rem; text-align:center;">Donate</a>
       </div>
+
     </div>
+
+    <!-- Upgrade note -->
+    <p style="text-align:center; font-size:0.85rem; color:rgba(255,255,255,0.4); margin-top:1.5rem; font-style:italic;">Session and 3-pass holders can upgrade to the Unlimited Event Pass on the day at the venue.</p>
   </div>
 </section>
 
@@ -1328,7 +1362,7 @@
         </div>
 
         <!-- Midnight banner -->
-        <div class="schedule-venue-banner">
+        <div class="schedule-venue-banner" style="background-color:#7d9ad3; color:#fff; border-left-color:#fff;">
           <span class="banner-icon">🌙</span>
           MIDNIGHT — Sessions move offsite to Wickwar Strength &amp; Fitness
         </div>
@@ -1365,7 +1399,7 @@
         </div>
 
         <!-- Dawn banner -->
-        <div class="schedule-venue-banner">
+        <div class="schedule-venue-banner" style="background-color:#edff92; color:#111; border-left-color:#111;">
           <span class="banner-icon">🌅</span>
           DAWN — Sessions return to Chipping Sodbury Rugby Club
         </div>
