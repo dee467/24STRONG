@@ -1138,6 +1138,51 @@
   </div>
 </nav>
 
+<!-- RAISED SO FAR BANNER -->
+<div id="raisedBanner" style="margin-top:60px; background:#edff92; border-top:2px solid #000; border-bottom:2px solid #000; padding:0.65rem 1rem; text-align:center; overflow:hidden;">
+  <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:clamp(0.65rem,2vw,0.8rem); letter-spacing:0.15em; text-transform:uppercase; color:rgba(0,0,0,0.65); vertical-align:middle; margin-right:0.6em;">Raised so far</span><span id="raisedAmount" style="font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(1.5rem,6vw,2.4rem); line-height:1; color:#000; letter-spacing:0.01em; vertical-align:middle;">£&hellip;</span>
+</div>
+
+<script>
+  (function() {
+    var SHEET_ID = '1kMUxJoLBdJu_CfA3OBDWlxPaX74zRvbxCwjU5GPiXEc';
+    var SHEET_TAB = 'Income';
+    var CELL = 'H15';
+    var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
+      '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(SHEET_TAB) +
+      '&range=' + CELL;
+
+    function formatAmount(raw) {
+      // Strip anything that isn't a digit or decimal point
+      var num = parseFloat(String(raw).replace(/[^0-9.\-]/g, ''));
+      if (isNaN(num)) return null;
+      return '£' + Math.round(num).toLocaleString('en-GB');
+    }
+
+    fetch(url)
+      .then(function(res) {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.text();
+      })
+      .then(function(csv) {
+        // gviz CSV wraps text values in quotes, e.g. "£7,045" or 7045
+        var value = csv.trim().replace(/^"|"$/g, '');
+        var formatted = formatAmount(value);
+        var el = document.getElementById('raisedAmount');
+        if (formatted && el) {
+          el.textContent = formatted;
+        } else if (el) {
+          el.textContent = '£—';
+        }
+      })
+      .catch(function(err) {
+        console.error('Could not load fundraising total:', err);
+        var el = document.getElementById('raisedAmount');
+        if (el) el.textContent = '£—';
+      });
+  })();
+</script>
+
 <!-- HERO -->
 <section id="home">
   <div class="hero-bg"></div>
