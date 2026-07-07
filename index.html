@@ -1151,11 +1151,15 @@
       '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(SHEET_TAB) +
       '&range=' + CELL;
 
-    function formatAmount(raw) {
+    function parseAmount(raw) {
       // Strip anything that isn't a digit or decimal point
       var num = parseFloat(String(raw).replace(/[^0-9.\-]/g, ''));
       if (isNaN(num)) return null;
-      return '£' + Math.round(num).toLocaleString('en-GB');
+      return Math.round(num);
+    }
+
+    function formatAmount(num) {
+      return '£' + num.toLocaleString('en-GB');
     }
 
     fetch(url)
@@ -1166,18 +1170,23 @@
       .then(function(csv) {
         // gviz CSV wraps text values in quotes, e.g. "£7,045" or 7045
         var value = csv.trim().replace(/^"|"$/g, '');
-        var formatted = formatAmount(value);
-        var el = document.getElementById('raisedAmount');
-        if (formatted && el) {
-          el.textContent = formatted;
-        } else if (el) {
-          el.textContent = '£—';
+        var num = parseAmount(value);
+        var bannerEl = document.getElementById('raisedAmount');
+        var heroEl = document.getElementById('heroRaisedAmount');
+        var resultsEl = document.getElementById('resultsRaisedAmount');
+        if (num !== null) {
+          if (bannerEl) bannerEl.textContent = formatAmount(num);
+          // Hero/results numbers already show a separate £ sign, so just the number here
+          if (heroEl) heroEl.textContent = num.toLocaleString('en-GB');
+          if (resultsEl) resultsEl.textContent = num.toLocaleString('en-GB');
+        } else {
+          if (bannerEl) bannerEl.textContent = '£—';
         }
       })
       .catch(function(err) {
         console.error('Could not load fundraising total:', err);
-        var el = document.getElementById('raisedAmount');
-        if (el) el.textContent = '£—';
+        var bannerEl = document.getElementById('raisedAmount');
+        if (bannerEl) bannerEl.textContent = '£—';
       });
   })();
 </script>
@@ -1192,7 +1201,7 @@
     <p class="hero-venue">Chipping Sodbury Rugby Club &amp; Wickwar Strength &amp; Fitness</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <span class="stat-num"><sup>£</sup>13,090</span>
+        <span class="stat-num"><sup>£</sup><span id="heroRaisedAmount">13,090</span></span>
         <span class="stat-label">Raised So Far</span>
       </div>
       <div class="hero-stat">
@@ -1289,7 +1298,7 @@
 
     <div class="hero-stats reveal" style="margin: 0 auto 2.5rem;">
       <div class="hero-stat">
-        <span class="stat-num"><sup>£</sup>13,090</span>
+        <span class="stat-num"><sup>£</sup><span id="resultsRaisedAmount">13,090</span></span>
         <span class="stat-label">Raised So Far</span>
       </div>
       <div class="hero-stat">
